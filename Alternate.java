@@ -2,89 +2,93 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Alternate {
-    private static String cardNumber;
-    private static String cardType;
-    private static String isValid;
-    //private static String 
-    //private static int sumofoddnumber;
-    
-    static List<Integer> cardNumber1 = new ArrayList<>();
+public class Alternate{
+ Scanner input = new Scanner(System.in);
+   
+   //5399831619690403, 4388576018402626
+   public String cardType(String card){
+    String type = "";
+    if(card.charAt(0) == '4'){
+     type = "Visa Card";
+	}
+    else if(card.charAt(0) == '5'){
+	type = "MasterCard";
+	}
+    else if(card.charAt(0) == '3' && card.charAt(1) == '7'){
+	type = "American Expresss Card";
+	}
+    else if(card.charAt(0) == '6'){
+	type = "Discover card";
+	}
+    else type = "invalid card";
+	return type;
+	}
 
-    public static void main(String[] args) {
-        parameter();
-        //multiplicarray();
-        
-     }
+    public int calculator1( String cardNumbers){
+	int result = 0;
+	for(int index = cardNumbers.length() - 1; index >= 0; index--){
+	var cardValue = Integer.parseInt(String.valueOf(cardNumbers.charAt(index))) * 2;
+	if (index % 2 == 0 && cardValue < 10){
+	result += cardValue;
+	}
+	}
+	return result;
+	}
 
-
-       public static void parameter() {
-
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello");
-        System.out.println("Please enter name of card holder");
-        String cardHolder = scanner.nextLine();
-        
-        System.out.println("Enter your card number for verification: ");
-        String cardsNumber = scanner.nextLine();
-       
-         if(isValid(cardNumber)){
-        String cardsNumber1i = cardType(cardsNumber);
-        if(!cardType.equals("Unkown"));
-          System.out.println("Valid" + cardType + "card");
-       	}
-	else{
-         System.out.println("Invalid card inputted");
-        }
-       System.out.println("The numbers of digit inputted is" + cardsNumber);
-       
-       //}else{     
-       System.out.println("The numbers entered is invild");
+    public int calculator2(String cardNumbers){
+	int result = 0;
+	for(int index = cardNumbers.length() - 1; index >= 0; index--){
+	var cardValue = Integer.parseInt(String.valueOf(cardNumbers.charAt(index))) * 2;
+	if (index % 2 == 0 && cardValue >= 10){	
+		String secondValue = String.valueOf(cardValue);
+		for(int index1 = 0; index1 < secondValue.length(); index1++){
+		var cardValue1 = Integer.parseInt(String.valueOf(secondValue.charAt(index1)));
+		result += cardValue1;}
+	}
+	}
+	return result;
+	}
 	
-       
-
-       
-        
-        //public static String getcardtype(string getcardtype);
-        if (cardsNumber.charAt(0) == '3' && cardsNumber.charAt(1) == '7') {
-            cardType = "American express cards";
-        } else if (cardsNumber.charAt(0) == '5') {
-            cardType = "Mastercard";
-        } else if (cardsNumber.charAt(0) == '6') {
-            cardType = "Discover cards";
-        } else if (cardsNumber.charAt(0) == '4') {
-            cardType = "visa cards";
-        } else {
-            cardType = "invalid card";
+	public int calculator3( String cardNumbers){
+	int result = 0;
+	for(int index = cardNumbers.length() - 1; index >= 0; index--){
+	if (index % 2 != 0){
+	var cardValue = Integer.parseInt(String.valueOf(cardNumbers.charAt(index)));
+	result += cardValue;
+	}
+	}
+	return result;
+	}
+	
+	public void creditCardValidator(){
+        System.out.println("Hello, Kindly Enter Card To verify: ");
+        long number = input.nextLong();
+	 String converter = "";
+	String creditCard = converter + number;
+        String type = cardType(creditCard), validType = "";
+        int cardLength = creditCard.length();
+        if (cardLength >=13 && cardLength <=16) {
+        int total = calculator1(creditCard) + calculator2(creditCard) + calculator3(creditCard), lengthChecker = creditCard.length();
+        if (total % 10 == 0){
+            validType = "valid";
+        }else {
+            validType = "invalid";
         }
-        System.out.println("The credit card type: "+ cardType);
-        System.out.println("The credit card number is:"+ cardsNumber);
-        System.out.println("The name on the card is: "+ cardHolder);
-        
-    }
+            System.out.println("**************************\n" +
+                    "****** Credit Card Type: " + type + "\n" +
+                    "****** Credit Card Number: " + creditCard + "\n" +
+                    "****** Credit Card Digit Length: " + cardLength + "\n" +
+                    "****** Credit Card Digit Validity Status: " + validType + "\n" +
+                    "**************************");
+        }
+            else System.out.println("invalid card length");
+        }
 
-    
-    
-    public static boolean isvalid(String cardsNumber) {
-        int cardnumberasstring = Integer.parseInt(cardsNumber);
-         int sum;
-         boolean alternate = false;
-        for(int i = cardsNumber.length() - 2; i >= 0; i--){
-            int digit = Integer.parseInt(String.valueOf(cardsNumber.charAt(i)));
-            if(alternate){
-              digit *=2;
-            if(digit > 9){
-                digit = (digit % 10) + 1;
-             }
-           }
-          sum += digit;
-         alternate = !alternate;
-         }
-        return (sum % 10 == 0);
-        int lengthOfNumber = cardsNumber.length();
-        System.out.println("the credit card length is:  " + lengthOfNumber);
-      }  
+    public static void main(String...args){
+	Alternate alternate = new Alternate();
+   	alternate.creditCardValidator();
+	
+	}
         
     }
 
