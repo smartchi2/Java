@@ -89,7 +89,7 @@ public class SemicolonStore{
 			
 			firstPrint();
 			
-			System.out.printf("THIS IS NOT AN RECEIPT KINDLY PAY %.2f\n", billTotal);
+			System.out.printf("THIS IS NOT A RECEIPT KINDLY PAY %.2f\n", billTotal);
 			System.out.println(equalsTo);
 			
 			System.out.println("How much did the customer give to you? ");

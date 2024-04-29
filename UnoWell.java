@@ -1,30 +1,20 @@
 public class UnoWell{
-	public static void main(String...args){
-		System.out.print("* ");
-		System.out.println();
+	public statc void main(String...args){
+			printFirstTraingle();
+			printSecondTraingle();
 
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.println();
 
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.println();
-
-		
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.println();
-
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.print("* ");
-		System.out.println();
 		}
-
+		public static void printFirstTraingle(){}
+		for(in dex = 1; index <= 5; index++){
+			 printFirstTraingle(index);
+			}
+		  }
+			
+		public static void printSecondTraingle{
+			for(int index = 0; index < numberOfTimes; index++){
+				printStar(index);
+     }
+			System.out.print("* ");
+		}
 	}

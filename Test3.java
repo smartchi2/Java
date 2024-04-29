@@ -24,8 +24,8 @@ public class Test3{
 		System.out.println(number3 - number2 - number3);
 		System.out.printf("%.2f%n",(double)(number1 + number2 + number3) / 2 );
 		System.out.printf("%d%n", Math.abs(number1 - number2 - number3));
-		//System.out.printf("%d%n", Math.max(number1, number2, number3));
-		//System.out.printf("%d%n", Math.min(number1, number2, number3));
+		System.out.printf("%d%n", Math.max(number1, number2, number3));
+		System.out.printf("%d%n", Math.min(number1, number2, number3));
 		}
 
 	}
