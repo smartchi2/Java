@@ -6,10 +6,10 @@ class Student {
     private ArrayList<Double> scores;
 
     public int Grade(ArrayList<Double> scores) {
-    public int nameGrade(ArrayList<String> name){
+    //public int nameGrade(ArrayList<String>name){
         this.name = name;
         this.scores = scores;
-     	}
+     	
     public String getName(){
         return name;
     }
