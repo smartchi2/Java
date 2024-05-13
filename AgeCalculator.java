@@ -1,26 +1,40 @@
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
-public class AgeCalculator {
- public static void main(String[] args){
-        String[] dates = {"11/12/2022", "11-12-2022", "11 12 2022", "11.12.2022", "11/Dec/2022", "11-Dec-2022"};
-        for (String date : dates) {
-            System.out.println("Date: " + date + " Age: " + calculateAge(date));
-     	}
- }
-public static int calculateAge(String dob) {
-String[] patterns = {"dd/MM/yyyy", "dd-MM-yyyy", "dd MM yyyy", "dd.MM.yyyy", "dd/MMM/yyyy", "dd-MMM-yyyy"};
-        for (String pattern : patterns) {
-                LocalDate birthDate = LocalDate.parse(dob, DateTimeFormatter.ofPattern(pattern));
-                LocalDate currentDate = LocalDate.now();
+public class AgeCalculator{
+	public static void main(String...args){
+	String date = "11 - 12 -2021";
 
-                Period period = Period.between(birthDate, currentDate);
-	return Period.getYears();
-	 }
+	String[]  formats = {"dd-MMM-yyyy",   "dd-MM-yyyy",   "dd-mm-yyyy",   "dd/mm/yy"};
+	LocalDate dob = null;
+	
+	for(String format : formats){
+	  try{
+	     dob = LocalDate.parse(date,  DateTimeFormatter.ofPattern(format));
+	       break;
+	   }catch (Exception e) {
+	            System.out.println(e.getMessage());
+	    }
+  }
+
+
+	if(dob != null){
+	     LocalDate currentDate = LocalDate.now();
+
+	int age = currentDate.minusYears(dob.getYear()).getYear();
+	System.out.println( age);
+		}
+
+	}
+
 }
-	
-	
+
 
 	
 
